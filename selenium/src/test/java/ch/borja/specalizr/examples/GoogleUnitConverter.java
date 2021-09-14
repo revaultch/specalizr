@@ -29,10 +29,8 @@ import static ch.borja.specalizr.api.element.Button.button;
 import static ch.borja.specalizr.api.element.Field.field;
 import static ch.borja.specalizr.api.element.Item.item;
 import static ch.borja.specalizr.api.element.Select.selector;
-import static ch.borja.specalizr.api.query.ElementQueryComponent.that;
 import static ch.borja.specalizr.api.query.ElementQueryComponent.with;
-import static ch.borja.specalizr.api.query.ProximityQueryComponent.above;
-import static ch.borja.specalizr.api.query.ProximityQueryComponent.rightOf;
+import static ch.borja.specalizr.api.query.ProximityQueryComponent.*;
 import static ch.borja.specalizr.api.query.TextQueryComponent.text;
 
 public class GoogleUnitConverter {
@@ -60,17 +58,18 @@ public class GoogleUnitConverter {
 
     @Test
     public void shouldConvertMilesToKm() {
-        final var seleniumPlayer = new SeleniumPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver(this.webDriver), new SeleniumValidationConditionResolver());
+        final var seleniumPlayer = new SeleniumPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver(), new SeleniumValidationConditionResolver());
+        final var leftField = field(leftOf(item(with(text("=")))), below(selector(with(text("Length")))));
+        final var rightField = field(rightOf(leftField));
         final var actions = first(click(item(with(text("I agree")))))
                 .then(write("unit converter").into(field(above(button(with(text("Google Search")))))))
                 .then(press(ENTER))
                 .then(select("Mile").from(selector(with(text("Meter")))))
                 .then(select("kilometre").from(selector(with(text("Centimeter")))))
-                .then(clear(field(with(text("1")))))
-                .then(write("50").into(field(with(text("1")))))
-                .andLastly(validate(that(field(rightOf(field(with(text("1")))))), containsText("80.4672"))); // * with(text("1")) ?
+                .then(clear(leftField))
+                .then(write("50").into(leftField))
+                .andLastly(validate(that(rightField), containsText("80.4672")));
 
-        // * weird dom refreshing issue - probably on purpose ? by Google
         play(actions, with(seleniumPlayer));
     }
 }

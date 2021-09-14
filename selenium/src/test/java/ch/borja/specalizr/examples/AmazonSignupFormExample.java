@@ -58,7 +58,7 @@ public class AmazonSignupFormExample {
 
     @Test
     public void shouldTestSomething() {
-        final var seleniumPlayer = new SeleniumPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver(this.webDriver), new SeleniumValidationConditionResolver());
+        final var seleniumPlayer = new SeleniumPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver(), new SeleniumValidationConditionResolver());
         final var actions =
                 first(click(item(with(text("Sell")))))
                         .then(click(item(with(text("Sign up")), above(item(containing(text("More than half the units")))))))

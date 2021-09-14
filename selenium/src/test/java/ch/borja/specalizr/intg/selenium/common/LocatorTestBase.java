@@ -31,7 +31,7 @@ public abstract class LocatorTestBase {
         final ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
         this.webDriver = new ChromeDriver(chromeOptions);
-        this.seleniumXPathQueryComponentVisitor = new SeleniumXPathQueryComponentResolver(this.webDriver);
+        this.seleniumXPathQueryComponentVisitor = new SeleniumXPathQueryComponentResolver();
     }
 
     @AfterEach

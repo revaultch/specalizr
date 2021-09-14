@@ -22,7 +22,7 @@ public class HitActionDefinitionPlayerTest extends LocatorTestBase {
         final var page = Page.builder().scriptContent("").bodyContent(bodyContent).build();
         this.webDriver.navigate().to(page.generateAsDataUrl());
         final var action = clear(element);
-        final var clearActionPlayer = new ClearActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver(this.webDriver));
+        final var clearActionPlayer = new ClearActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver());
         // when
         clearActionPlayer.play(action);
         // then

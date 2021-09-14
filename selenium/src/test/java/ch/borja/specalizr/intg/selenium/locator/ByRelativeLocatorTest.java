@@ -55,5 +55,4 @@ public class ByRelativeLocatorTest extends LocatorTestBase {
         assertEquals("11", webElement.getAttribute("id"));
     }
 
-
 }

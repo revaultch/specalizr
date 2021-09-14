@@ -2,9 +2,11 @@ package ch.borja.specalizr.api.query;
 
 import ch.borja.specalizr.api.element.Element;
 import lombok.Getter;
+import lombok.ToString;
 
 import static ch.borja.specalizr.api.query.ProximityQueryComponent.Proximity.*;
 
+@ToString
 public class ProximityQueryComponent extends ElementQueryComponent {
 
     public enum Proximity {

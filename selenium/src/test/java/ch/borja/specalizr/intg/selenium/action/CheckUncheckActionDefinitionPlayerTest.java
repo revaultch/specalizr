@@ -38,7 +38,7 @@ public abstract class CheckUncheckActionDefinitionPlayerTest extends LocatorTest
         // given
         final var page = Page.builder().scriptContent("").bodyContent(bodyContent).build();
         this.webDriver.navigate().to(page.generateAsDataUrl());
-        final var checkUncheckActionPlayer = new CheckUncheckActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver(this.webDriver));
+        final var checkUncheckActionPlayer = new CheckUncheckActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver());
         // when
         checkUncheckActionPlayer.play(action);
         // then

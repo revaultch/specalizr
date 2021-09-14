@@ -27,7 +27,7 @@ public class SelectActionDefinitionPlayerTest extends LocatorTestBase {
         final var page = Page.builder().scriptContent("").bodyContent(bodyContent).build();
         this.webDriver.navigate().to(page.generateAsDataUrl());
         final var action = select(text).from(element);
-        final var selectActionDefinitionPlayer = new SelectActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver(this.webDriver));
+        final var selectActionDefinitionPlayer = new SelectActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver());
         // when
         selectActionDefinitionPlayer.play(action);
         // then

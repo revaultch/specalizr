@@ -4,9 +4,12 @@ import ch.borja.specalizr.api.player.ActionChainPlayResult;
 import ch.borja.specalizr.api.player.ActionDefinitionPlayerRegistry;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.extern.log4j.Log4j;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.String.format;
 
 /**
  * Enables action chaining. <p>
@@ -23,6 +26,7 @@ import java.util.List;
  * Further chaining is performed by using instance method {@link #then(ActionDefinition)}  <p>
  * For better readability finish the chain with {@link #andLastly(ActionDefinition)} <p>
  */
+@Log4j
 public class ActionChain {
 
     @Getter
@@ -34,6 +38,7 @@ public class ActionChain {
     public static ActionChainPlayResult play(@NonNull final ActionChain actionChain, @NonNull final ActionDefinitionPlayerRegistry actionChainPlayer) {
         final ActionChainPlayResult actionChainPlayResult = new ActionChainPlayResult();
         for (final var actionDefinition : actionChain.getActionDefinitionList()) {
+            ActionChain.log.debug(format("playing ... %s", actionDefinition));
             final var actionDefinitionPlayer = actionChainPlayer.forType((Class<ActionDefinition>) actionDefinition.getClass());
             actionDefinitionPlayer.play(actionDefinition);
         }

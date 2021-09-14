@@ -1,7 +1,9 @@
 package ch.borja.specalizr.api.query;
 
 import lombok.Getter;
+import lombok.ToString;
 
+@ToString
 public class TextQueryComponent extends ElementQueryComponent {
 
     @Getter

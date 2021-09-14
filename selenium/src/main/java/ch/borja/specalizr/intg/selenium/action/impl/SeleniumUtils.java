@@ -1,10 +1,7 @@
 package ch.borja.specalizr.intg.selenium.action.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,17 +24,22 @@ public class SeleniumUtils {
     }
 
     public static WebElement safelyLocate(final WebDriver webDriver, final By by) {
-        SeleniumUtils.log.info("safeLocate of " + by);
+        SeleniumUtils.log.debug("safeLocate of " + by);
         SeleniumUtils.waitUntilComplete(webDriver);
         final Actions actions = new Actions(webDriver);
-        final var webElementList = webDriver.findElements(by).stream().filter(webElement -> webElement.isDisplayed() && webElement.isEnabled()).collect(Collectors.toList());
+        WebElement webElement = SeleniumUtils.singlify((SearchContext) webDriver, by);
+        final WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        webElement = wait.until(ExpectedConditions.visibilityOf(webElement));
+        actions.moveToElement(webElement).perform();
+        return webElement;
+    }
+
+    public static WebElement singlify(final SearchContext searchContext, final By by) {
+        final var webElementList = searchContext.findElements(by).stream().filter(webElement -> webElement.isDisplayed() && webElement.isEnabled()).collect(Collectors.toList());
         if (webElementList.size() != 1) {
             throw new IllegalStateException(format("Unable to locate single element. Found %d items that match : %s", webElementList.size(), by.toString()));
         }
-        final WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
-        final WebElement webElement = wait.until(ExpectedConditions.visibilityOf(webElementList.get(0)));
-        actions.moveToElement(webElement).perform();
-        return webElement;
+        return webElementList.get(0);
     }
 
 

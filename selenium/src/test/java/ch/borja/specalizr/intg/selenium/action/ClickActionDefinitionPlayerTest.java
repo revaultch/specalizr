@@ -28,7 +28,7 @@ public class ClickActionDefinitionPlayerTest extends LocatorTestBase {
         final var page = Page.builder().scriptContent("var log = '';").bodyContent(bodyContent).build();
         this.webDriver.navigate().to(page.generateAsDataUrl());
         final var action = click(element);
-        final var clickActionPlayer = new ClickActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver(this.webDriver));
+        final var clickActionPlayer = new ClickActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver());
         // when
         clickActionPlayer.play(action);
         // then

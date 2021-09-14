@@ -36,7 +36,7 @@ public class WriteActionDefinitionPlayerTest extends LocatorTestBase {
         final var page = Page.builder().scriptContent("").bodyContent(bodyContent).build();
         this.webDriver.navigate().to(page.generateAsDataUrl());
         final var action = write(text).into(element);
-        final var writeActionPlayer = new WriteActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver(this.webDriver));
+        final var writeActionPlayer = new WriteActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver());
         // when
         this.clearValue();
         writeActionPlayer.play(action);
