@@ -1,6 +1,5 @@
 package ch.borja.specalizr.api.action;
 
-import ch.borja.specalizr.api.player.ActionChainPlayResult;
 import ch.borja.specalizr.api.player.ActionDefinitionPlayerRegistry;
 import lombok.Getter;
 import lombok.NonNull;
@@ -35,14 +34,12 @@ public class ActionChain {
     private ActionChain() {
     }
 
-    public static ActionChainPlayResult play(@NonNull final ActionChain actionChain, @NonNull final ActionDefinitionPlayerRegistry actionChainPlayer) {
-        final ActionChainPlayResult actionChainPlayResult = new ActionChainPlayResult();
+    public static void play(@NonNull final ActionChain actionChain, @NonNull final ActionDefinitionPlayerRegistry actionChainPlayer) {
         for (final var actionDefinition : actionChain.getActionDefinitionList()) {
             ActionChain.log.debug(format("playing ... %s", actionDefinition));
             final var actionDefinitionPlayer = actionChainPlayer.forType((Class<ActionDefinition>) actionDefinition.getClass());
             actionDefinitionPlayer.play(actionDefinition);
         }
-        return actionChainPlayResult;
     }
 
     public <T extends ActionDefinition> ActionChain then(final T action) {

@@ -4,7 +4,7 @@
 
 # Specalizr
 
-An implementation and platform agnostic, human-readable visual test scenario definition DSL.
+An implementation and platform agnostic, human-readable visual test scenario definition [DSL](./api).
 
 ![Full-build CI](https://github.com/borjafernandez/specalizr/actions/workflows/full-build.yaml/badge.svg)
 
@@ -40,7 +40,7 @@ Example for a google unit conversion use case :
 
 ### Action
 
-A command to be performed on a given element (i.e. press, write, select, write ...)
+A command to be performed on a given element (i.e. press, select, write, clear, ...)
 
 ### Element
 
@@ -56,6 +56,6 @@ A component that takes an Action chain and plays it against any given platform (
 
 ## Implementations
 
-There is currently a Selenium implementation available.
+There is currently a [Selenium](./selenium) implementation available. 
 
 
