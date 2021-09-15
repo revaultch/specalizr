@@ -17,7 +17,7 @@ public class ByTextLocatorTest extends LocatorTestBase {
         final var page = Page.builder().bodyContent("<div id='hello'>hello</div><div id='hola'>hola</div>").build();
         final var element = item(with(text("hola")));
         this.webDriver.navigate().to(page.generateAsDataUrl());
-        final var webElement = this.find(element.accept(this.seleniumXPathQueryComponentVisitor));
+        final var webElement = this.find(this.byResolver.resolve(element));
         assertEquals("hola", webElement.getAttribute("id"));
     }
 
@@ -27,7 +27,7 @@ public class ByTextLocatorTest extends LocatorTestBase {
         final var page = Page.builder().bodyContent("<div id='hello'>hello</div><div id='hola'>hola</div>").build();
         final var element = item(containing(text("ho")));
         this.webDriver.navigate().to(page.generateAsDataUrl());
-        final var webElement = this.find(element.accept(this.seleniumXPathQueryComponentVisitor));
+        final var webElement = this.find(this.byResolver.resolve(element));
         assertEquals("hola", webElement.getAttribute("id"));
     }
 

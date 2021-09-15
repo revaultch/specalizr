@@ -1,8 +1,8 @@
 package ch.qarts.specalizr.intg.selenium.action;
 
 import ch.qarts.specalizr.api.element.Clickable;
-import ch.qarts.specalizr.intg.selenium.action.impl.ClickActionDefinitionPlayer;
-import ch.qarts.specalizr.intg.selenium.action.impl.SeleniumXPathQueryComponentResolver;
+import ch.qarts.specalizr.intg.selenium.action.impl.player.ClickActionDefinitionPlayer;
+import ch.qarts.specalizr.intg.selenium.action.impl.xpath.DefaultByResolver;
 import ch.qarts.specalizr.intg.selenium.common.LocatorTestBase;
 import ch.qarts.specalizr.intg.selenium.common.Page;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ public class ClickActionDefinitionPlayerTest extends LocatorTestBase {
         final var page = Page.builder().scriptContent("var log = '';").bodyContent(bodyContent).build();
         this.webDriver.navigate().to(page.generateAsDataUrl());
         final var action = click(element);
-        final var clickActionPlayer = new ClickActionDefinitionPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver());
+        final var clickActionPlayer = new ClickActionDefinitionPlayer(this.webDriver, new DefaultByResolver());
         // when
         clickActionPlayer.play(action);
         // then

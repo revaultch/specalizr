@@ -1,16 +1,10 @@
 package ch.qarts.specalizr.api.query;
 
-import ch.qarts.specalizr.api.element.*;
-
 public interface ElementVisitor<T> {
-
-    T visit(AndQueryComponent andVisibleElementQuery);
 
     T visit(ProximityQueryComponent nearVisibleElementQuery);
 
     T visit(TextQueryComponent textVisibleElementQuery);
-
-    T visit(LabelQueryComponent labelVisibleElementQuery);
 
     T visit(BackgroundColorQueryComponent backgroundColorVisibleElementQuery);
 
@@ -18,13 +12,16 @@ public interface ElementVisitor<T> {
 
     T visit(ContainsQueryComponent containsVisibleElementQuery);
 
+    T visit(AttributeQueryComponent attributeQuery);
+
+    T visit(LabelQueryComponent labelQueryComponent);
+
+    /*
     T visit(Select selectableVisibleElement);
 
     T visit(CheckBox checkBox);
 
     T visit(RadioButton radioButton);
-
-    T visit(AttributeQueryComponent attributeQuery);
 
     T visit(Button button);
 
@@ -36,6 +33,6 @@ public interface ElementVisitor<T> {
 
     T visit(Item item);
 
-    T visit(Writable writable);
+    T visit(Field writable);*/
 
 }

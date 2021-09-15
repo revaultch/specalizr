@@ -1,4 +1,4 @@
-package ch.qarts.specalizr.intg.selenium.action.impl;
+package ch.qarts.specalizr.intg.selenium.action.impl.player;
 
 import ch.qarts.specalizr.api.action.definition.validation.ContainsTextValidationCondition;
 import ch.qarts.specalizr.api.action.definition.validation.ExistsValidationCondition;

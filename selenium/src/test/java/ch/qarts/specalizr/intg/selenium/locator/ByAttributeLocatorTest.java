@@ -20,7 +20,7 @@ public class ByAttributeLocatorTest extends LocatorTestBase {
         final var page = Page.builder().bodyContent("<div id='hello'>hello</div><input id='hola' placeholder='some placeholder'>hola</div>").build();
         final var element = item(having(placeholder(with(text("some placeholder")))));
         this.webDriver.navigate().to(page.generateAsDataUrl());
-        final var webElement = this.find(element.accept(this.seleniumXPathQueryComponentVisitor));
+        final var webElement = this.find(this.byResolver.resolve(element));
         assertEquals("hola", webElement.getAttribute("id"));
     }
 
@@ -30,7 +30,7 @@ public class ByAttributeLocatorTest extends LocatorTestBase {
         final var page = Page.builder().bodyContent("<div id='hello'>hello</div><input id='hola' placeholder='some placeholder'>hola</div>").build();
         final var element = item(having(placeholder(containing(text("some")))));
         this.webDriver.navigate().to(page.generateAsDataUrl());
-        final var webElement = this.find(element.accept(this.seleniumXPathQueryComponentVisitor));
+        final var webElement = this.find(this.byResolver.resolve(element));
         assertEquals("hola", webElement.getAttribute("id"));
     }
 

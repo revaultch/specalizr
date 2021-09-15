@@ -22,7 +22,7 @@ public class ByRelativeLocatorTest extends LocatorTestBase {
         final var page = Page.builder().template(ByRelativeLocatorTest.TEMPLATE).build();
         final var element = item(containing(text("div")), leftOf(item(with(text("2 div")))), above(item(with(text("13 div")))));
         this.webDriver.navigate().to(page.generate().toURL());
-        final var webElement = this.find(element.accept(this.seleniumXPathQueryComponentVisitor));
+        final var webElement = this.find(this.byResolver.resolve(element));
         assertEquals("1", webElement.getAttribute("id"));
     }
 
@@ -32,7 +32,7 @@ public class ByRelativeLocatorTest extends LocatorTestBase {
         final var page = Page.builder().template(ByRelativeLocatorTest.TEMPLATE).build();
         final var element = item(containing(text("div")), rightOf(item(with(text("2 div")))), above(item(with(text("12 div")))));
         this.webDriver.navigate().to(page.generate().toURL());
-        final var webElement = this.find(element.accept(this.seleniumXPathQueryComponentVisitor));
+        final var webElement = this.find(this.byResolver.resolve(element));
         assertEquals("3", webElement.getAttribute("id"));
     }
 
@@ -42,7 +42,7 @@ public class ByRelativeLocatorTest extends LocatorTestBase {
         final var page = Page.builder().template(ByRelativeLocatorTest.TEMPLATE).build();
         final var element = item(containing(text("div")), above(item(with(text("11 div")))), leftOf((item(with(text("2 div"))))));
         this.webDriver.navigate().to(page.generate().toURL());
-        final var webElement = this.find(element.accept(this.seleniumXPathQueryComponentVisitor));
+        final var webElement = this.find(this.byResolver.resolve(element));
         assertEquals("1", webElement.getAttribute("id"));
     }
 
@@ -52,7 +52,7 @@ public class ByRelativeLocatorTest extends LocatorTestBase {
         final var page = Page.builder().template(ByRelativeLocatorTest.TEMPLATE).build();
         final var element = item(containing(text("div")), below(item(with(text("1 div")))), leftOf(item(with(text("12 div")))));
         this.webDriver.navigate().to(page.generate().toURL());
-        final var webElement = this.find(element.accept(this.seleniumXPathQueryComponentVisitor));
+        final var webElement = this.find(this.byResolver.resolve(element));
         assertEquals("11", webElement.getAttribute("id"));
     }
 

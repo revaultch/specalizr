@@ -1,6 +1,7 @@
 package ch.qarts.specalizr.intg.selenium.common;
 
-import ch.qarts.specalizr.intg.selenium.action.impl.SeleniumXPathQueryComponentResolver;
+import ch.qarts.specalizr.intg.selenium.action.impl.xpath.ByResolver;
+import ch.qarts.specalizr.intg.selenium.action.impl.xpath.DefaultByResolver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,7 +16,7 @@ public abstract class LocatorTestBase {
 
     protected WebDriver webDriver;
 
-    protected SeleniumXPathQueryComponentResolver seleniumXPathQueryComponentVisitor;
+    protected ByResolver byResolver;
 
     protected WebElement find(final By by) {
         return this.webDriver.findElement(by);
@@ -31,7 +32,7 @@ public abstract class LocatorTestBase {
         final ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
         this.webDriver = new ChromeDriver(chromeOptions);
-        this.seleniumXPathQueryComponentVisitor = new SeleniumXPathQueryComponentResolver();
+        this.byResolver = new DefaultByResolver();
     }
 
     @AfterEach

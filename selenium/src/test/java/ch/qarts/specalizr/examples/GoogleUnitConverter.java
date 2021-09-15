@@ -1,8 +1,7 @@
 package ch.qarts.specalizr.examples;
 
-import ch.qarts.specalizr.intg.selenium.action.impl.SeleniumValidationConditionResolver;
-import ch.qarts.specalizr.intg.selenium.action.impl.SeleniumXPathQueryComponentResolver;
-import ch.qarts.specalizr.intg.selenium.action.registry.SeleniumPlayer;
+import ch.qarts.specalizr.intg.selenium.action.impl.player.SeleniumPlayer;
+import ch.qarts.specalizr.intg.selenium.action.impl.xpath.DefaultByResolver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
@@ -58,7 +57,7 @@ public class GoogleUnitConverter {
 
     @Test
     public void shouldConvertMilesToKm() {
-        final var seleniumPlayer = new SeleniumPlayer(this.webDriver, new SeleniumXPathQueryComponentResolver(), new SeleniumValidationConditionResolver());
+        final var seleniumPlayer = new SeleniumPlayer(this.webDriver, new DefaultByResolver());
         final var leftField = field(leftOf(item(with(text("=")))), below(selector(with(text("Length")))));
         final var rightField = field(rightOf(leftField), below(selector(with(text("Length")))));
         final var actions = first(click(item(with(text("I agree")))))

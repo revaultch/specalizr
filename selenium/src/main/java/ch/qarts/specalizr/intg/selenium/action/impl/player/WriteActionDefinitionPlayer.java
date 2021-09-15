@@ -1,7 +1,9 @@
-package ch.qarts.specalizr.intg.selenium.action.impl;
+package ch.qarts.specalizr.intg.selenium.action.impl.player;
 
 import ch.qarts.specalizr.api.action.definition.WriteActionDefinition;
 import ch.qarts.specalizr.api.player.ActionDefinitionPlayer;
+import ch.qarts.specalizr.intg.selenium.action.impl.SeleniumUtils;
+import ch.qarts.specalizr.intg.selenium.action.impl.xpath.ByResolver;
 import lombok.AllArgsConstructor;
 import org.openqa.selenium.WebDriver;
 
@@ -10,11 +12,11 @@ public class WriteActionDefinitionPlayer implements ActionDefinitionPlayer<Write
 
     private WebDriver webDriver;
 
-    private SeleniumXPathQueryComponentResolver elementLocationExtractor;
+    private ByResolver byResolver;
 
     @Override
     public void play(final WriteActionDefinition<?> writeActionDefinition) {
-        SeleniumUtils.safelyLocate(this.webDriver, writeActionDefinition.getWritableElement().accept(this.elementLocationExtractor))
+        SeleniumUtils.safelyLocate(this.webDriver, this.byResolver.resolve(writeActionDefinition.getWritableElement()))
                 .sendKeys(writeActionDefinition.getText());
     }
 }

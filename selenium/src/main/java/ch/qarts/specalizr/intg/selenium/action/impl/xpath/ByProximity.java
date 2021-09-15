@@ -1,6 +1,7 @@
-package ch.qarts.specalizr.intg.selenium.action.impl;
+package ch.qarts.specalizr.intg.selenium.action.impl.xpath;
 
 import ch.qarts.specalizr.api.query.ProximityQueryComponent;
+import ch.qarts.specalizr.intg.selenium.action.impl.SeleniumUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
@@ -32,9 +33,10 @@ public class ByProximity extends By {
         return this;
     }
 
+    // TODO replace new DefaultByResolver here
     @Override
     public List<WebElement> findElements(final SearchContext context) {
-        final var reference = SeleniumUtils.singlify(context, this.proximityQueryComponent.getElement().accept(new SeleniumXPathQueryComponentResolver()));
+        final var reference = SeleniumUtils.singlify(context, new DefaultByResolver().resolve(this.proximityQueryComponent.getElement()));
         return context.findElements(this.by).stream().filter(item -> this.filter(item, reference)).collect(Collectors.toList());
     }
 

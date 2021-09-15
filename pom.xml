@@ -7,7 +7,25 @@
     <groupId>ch.qarts.specalizr</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>${revision}</version>
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <revision>0.1-SNAPSHOT</revision>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>bfernandez</id>
+            <name>Borja Fernandez</name>
+            <email>borja@qarts.ch</email>
+            <organization>qarts.ch</organization>
+            <url>https://borja.revault.ch</url>
+        </developer>
+    </developers>
+
+
     <modules>
         <module>api</module>
         <module>selenium</module>
@@ -28,9 +46,28 @@
         </dependencies>
     </dependencyManagement>
 
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/borjafernandez/specalizr.git</connection>
+        <developerConnection>scm:git:git@github.com:borjafernandez/specalizr.git</developerConnection>
+        <url>http://github.com/borjafernandez/specalizr</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 </project>

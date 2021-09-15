@@ -2,15 +2,12 @@ package ch.qarts.specalizr.api.element;
 
 
 import ch.qarts.specalizr.api.query.ElementQueryComponent;
-import ch.qarts.specalizr.api.query.ElementVisitor;
 
 import java.util.List;
 
 public interface Element {
 
     List<ElementQueryComponent> getElementQueryComponentList();
-
-    <T> T accept(ElementVisitor<T> visitor);
 
     static <T extends Element> T a(final T t) {
         return t;

@@ -1,5 +1,6 @@
-package ch.qarts.specalizr.intg.selenium.action.impl;
+package ch.qarts.specalizr.intg.selenium.action.impl.xpath;
 
+import ch.qarts.specalizr.api.element.Element;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
@@ -12,6 +13,8 @@ import java.time.Duration;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static ch.qarts.specalizr.intg.selenium.action.impl.xpath.XPathUtils.toXPath;
+
 /**
  * A <b>reasonably performant</b> {@link By} implementation that matches all provided Bys <p>
  */
@@ -19,17 +22,18 @@ import java.util.stream.Collectors;
 @Log4j
 class ByMatchAll extends By {
 
+    private final Element element;
     private final List<By> byList = new ArrayList<>();
 
-    ByMatchAll(final By root, final List<By> parseElementQueryComponents) {
-        this.byList.add(root);
+    ByMatchAll(final Element element, final List<By> parseElementQueryComponents) {
+        this.element = element;
         this.byList.addAll(parseElementQueryComponents);
     }
 
     public By wrapBy(final By by) {
         if (by instanceof ByProximity) {
             // adding hint to proximity for performance
-            return ((ByProximity) by).with(this.byList.get(0));
+            return ((ByProximity) by).with(By.xpath(toXPath(this.element)));
         } else {
             return by;
         }

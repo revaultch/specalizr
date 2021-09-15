@@ -1,7 +1,9 @@
-package ch.qarts.specalizr.intg.selenium.action.impl;
+package ch.qarts.specalizr.intg.selenium.action.impl.player;
 
 import ch.qarts.specalizr.api.action.definition.CheckUncheckActionDefinition;
 import ch.qarts.specalizr.api.player.ActionDefinitionPlayer;
+import ch.qarts.specalizr.intg.selenium.action.impl.SeleniumUtils;
+import ch.qarts.specalizr.intg.selenium.action.impl.xpath.ByResolver;
 import lombok.AllArgsConstructor;
 import org.openqa.selenium.WebDriver;
 
@@ -12,11 +14,11 @@ public class CheckUncheckActionDefinitionPlayer implements ActionDefinitionPlaye
 
     private WebDriver webDriver;
 
-    private SeleniumXPathQueryComponentResolver elementLocationExtractor;
+    private ByResolver byResolver;
 
     @Override
     public void play(final CheckUncheckActionDefinition<?> checkUncheckActionDefinition) {
-        final var webElement = SeleniumUtils.safelyLocate(this.webDriver, checkUncheckActionDefinition.getToggable().accept(this.elementLocationExtractor));
+        final var webElement = SeleniumUtils.safelyLocate(this.webDriver, this.byResolver.resolve(checkUncheckActionDefinition.getToggable()));
         if (checkUncheckActionDefinition.getAction().equals(CheckUncheckActionDefinition.Actions.CHECK)) {
             if (!webElement.isSelected()) {
                 webElement.click();
