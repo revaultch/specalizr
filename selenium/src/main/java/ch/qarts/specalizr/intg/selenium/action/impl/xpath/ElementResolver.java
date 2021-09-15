@@ -15,7 +15,7 @@ import static ch.qarts.specalizr.intg.selenium.action.impl.xpath.XPathUtils.toXP
 import static java.lang.String.format;
 
 
-public class DefaultByResolver implements ByResolver {
+public class ElementResolver implements ByResolver {
 
     @Override
     public By resolve(final Element element) {

@@ -2,7 +2,7 @@ package ch.qarts.specalizr.intg.selenium.action;
 
 import ch.qarts.specalizr.api.element.Writable;
 import ch.qarts.specalizr.intg.selenium.action.impl.player.ClearActionDefinitionPlayer;
-import ch.qarts.specalizr.intg.selenium.action.impl.xpath.DefaultByResolver;
+import ch.qarts.specalizr.intg.selenium.action.impl.xpath.ElementResolver;
 import ch.qarts.specalizr.intg.selenium.common.LocatorTestBase;
 import ch.qarts.specalizr.intg.selenium.common.Page;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ public class HitActionDefinitionPlayerTest extends LocatorTestBase {
         final var page = Page.builder().scriptContent("").bodyContent(bodyContent).build();
         this.webDriver.navigate().to(page.generateAsDataUrl());
         final var action = clear(element);
-        final var clearActionPlayer = new ClearActionDefinitionPlayer(this.webDriver, new DefaultByResolver());
+        final var clearActionPlayer = new ClearActionDefinitionPlayer(this.webDriver, new ElementResolver());
         // when
         clearActionPlayer.play(action);
         // then

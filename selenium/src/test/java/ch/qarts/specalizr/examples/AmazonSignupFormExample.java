@@ -1,7 +1,7 @@
 package ch.qarts.specalizr.examples;
 
 import ch.qarts.specalizr.intg.selenium.action.impl.player.SeleniumPlayer;
-import ch.qarts.specalizr.intg.selenium.action.impl.xpath.DefaultByResolver;
+import ch.qarts.specalizr.intg.selenium.action.impl.xpath.ElementResolver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
@@ -57,7 +57,7 @@ public class AmazonSignupFormExample {
 
     @Test
     public void shouldTestSomething() {
-        final var seleniumPlayer = new SeleniumPlayer(this.webDriver, new DefaultByResolver());
+        final var seleniumPlayer = new SeleniumPlayer(this.webDriver, new ElementResolver());
         final var actions =
                 first(click(item(with(text("Sell")))))
                         .then(click(item(with(text("Sign up")), above(item(containing(text("More than half the units")))))))

@@ -2,7 +2,7 @@ package ch.qarts.specalizr.intg.selenium.action;
 
 import ch.qarts.specalizr.api.element.Selectable;
 import ch.qarts.specalizr.intg.selenium.action.impl.player.SelectActionDefinitionPlayer;
-import ch.qarts.specalizr.intg.selenium.action.impl.xpath.DefaultByResolver;
+import ch.qarts.specalizr.intg.selenium.action.impl.xpath.ElementResolver;
 import ch.qarts.specalizr.intg.selenium.common.LocatorTestBase;
 import ch.qarts.specalizr.intg.selenium.common.Page;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ public class SelectActionDefinitionPlayerTest extends LocatorTestBase {
         final var page = Page.builder().scriptContent("").bodyContent(bodyContent).build();
         this.webDriver.navigate().to(page.generateAsDataUrl());
         final var action = select(text).from(element);
-        final var selectActionDefinitionPlayer = new SelectActionDefinitionPlayer(this.webDriver, new DefaultByResolver());
+        final var selectActionDefinitionPlayer = new SelectActionDefinitionPlayer(this.webDriver, new ElementResolver());
         // when
         selectActionDefinitionPlayer.play(action);
         // then

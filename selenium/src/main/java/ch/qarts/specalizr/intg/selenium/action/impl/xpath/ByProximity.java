@@ -36,7 +36,7 @@ public class ByProximity extends By {
     // TODO replace new DefaultByResolver here
     @Override
     public List<WebElement> findElements(final SearchContext context) {
-        final var reference = SeleniumUtils.singlify(context, new DefaultByResolver().resolve(this.proximityQueryComponent.getElement()));
+        final var reference = SeleniumUtils.singlify(context, new ElementResolver().resolve(this.proximityQueryComponent.getElement()));
         return context.findElements(this.by).stream().filter(item -> this.filter(item, reference)).collect(Collectors.toList());
     }
 
