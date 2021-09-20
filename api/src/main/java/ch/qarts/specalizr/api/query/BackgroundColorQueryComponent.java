@@ -12,11 +12,6 @@ public class BackgroundColorQueryComponent extends ElementQueryComponent {
         this.color = color;
     }
 
-    @Override
-    public <T> T accept(final ElementVisitor<T> visitor) {
-        return visitor.visit(this);
-    }
-
     public static BackgroundColorQueryComponent backgroundColor(final Colors color) {
         return new BackgroundColorQueryComponent(color);
     }

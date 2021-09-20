@@ -13,11 +13,6 @@ public class TextQueryComponent extends ElementQueryComponent {
         this.text = text;
     }
 
-    @Override
-    public <T> T accept(final ElementVisitor<T> visitor) {
-        return visitor.visit(this);
-    }
-
     public static TextQueryComponent text(final String text) {
         return new TextQueryComponent(text);
     }

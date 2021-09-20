@@ -28,11 +28,6 @@ public class ProximityQueryComponent extends ElementQueryComponent {
         this.element = element;
     }
 
-    @Override
-    public <T> T accept(final ElementVisitor<T> visitor) {
-        return visitor.visit(this);
-    }
-
     public static ProximityQueryComponent near(final Element element) {
         return new ProximityQueryComponent(NEAR, element);
     }

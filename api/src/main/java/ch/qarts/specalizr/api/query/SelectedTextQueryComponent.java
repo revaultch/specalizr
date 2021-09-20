@@ -11,11 +11,6 @@ public class SelectedTextQueryComponent extends ElementQueryComponent {
         this.text = text;
     }
 
-    @Override
-    public <T> T accept(final ElementVisitor<T> visitor) {
-        return visitor.visit(this);
-    }
-
     public static SelectedTextQueryComponent selectedText(final String text) {
         return new SelectedTextQueryComponent(text);
     }

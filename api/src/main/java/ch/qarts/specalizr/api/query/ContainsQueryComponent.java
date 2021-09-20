@@ -11,11 +11,6 @@ public class ContainsQueryComponent extends ElementQueryComponent {
         this.textLocation = textLocation;
     }
 
-    @Override
-    public <T> T accept(final ElementVisitor<T> visitor) {
-        return visitor.visit(this);
-    }
-
     public static ContainsQueryComponent containing(final TextQueryComponent textVisibleElementQuery) {
         return new ContainsQueryComponent(textVisibleElementQuery);
     }

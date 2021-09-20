@@ -1,7 +1,7 @@
-package ch.qarts.specalizr.intg.selenium.action.impl.xpath;
+package ch.qarts.specalizr.intg.selenium.action.impl.xpath.resolver.impl;
 
 import ch.qarts.specalizr.api.query.ProximityQueryComponent;
-import ch.qarts.specalizr.intg.selenium.action.impl.SeleniumUtils;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
@@ -18,37 +18,29 @@ import static ch.qarts.specalizr.api.query.ProximityQueryComponent.Proximity.*;
  * also see comment here : https://angiejones.tech/selenium-4-relative-locators/
  */
 @Slf4j
+@AllArgsConstructor
 public class ByProximity extends By {
 
-    private final ProximityQueryComponent proximityQueryComponent;
+    private ProximityQueryComponent.Proximity proximity;
 
-    private By by;
+    private By hint;
 
-    public ByProximity(final ProximityQueryComponent proximityQueryComponent) {
-        this.proximityQueryComponent = proximityQueryComponent;
-    }
+    private WebElement target;
 
-    public ByProximity with(final By by) {
-        this.by = by;
-        return this;
-    }
-
-    // TODO replace new DefaultByResolver here
     @Override
     public List<WebElement> findElements(final SearchContext context) {
-        final var reference = SeleniumUtils.singlify(context, new ElementResolver().resolve(this.proximityQueryComponent.getElement()));
-        return context.findElements(this.by).stream().filter(item -> this.filter(item, reference)).collect(Collectors.toList());
+        return context.findElements(this.hint).stream().filter(item -> this.filter(item, target)).collect(Collectors.toList());
     }
 
     private boolean filter(final WebElement item, final WebElement reference) {
         try {
-            if (this.proximityQueryComponent.getProximity().equals(ABOVE)) {
+            if (this.proximity.equals(ABOVE)) {
                 return item.getRect().getY() < reference.getRect().getY();
-            } else if (this.proximityQueryComponent.getProximity().equals(BELOW)) {
+            } else if (this.proximity.equals(BELOW)) {
                 return item.getRect().getY() > reference.getRect().getY();
-            } else if (this.proximityQueryComponent.getProximity().equals(LEFT_OF)) {
+            } else if (this.proximity.equals(LEFT_OF)) {
                 return item.getRect().getX() < reference.getRect().getX();
-            } else if (this.proximityQueryComponent.getProximity().equals(RIGHT_OF)) {
+            } else if (this.proximity.equals(RIGHT_OF)) {
                 return item.getRect().getX() > reference.getRect().getX();
             } else {
                 throw new IllegalStateException("Unhandled proximity type");

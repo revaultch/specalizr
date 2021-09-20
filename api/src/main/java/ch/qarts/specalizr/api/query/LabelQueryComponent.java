@@ -12,11 +12,6 @@ public class LabelQueryComponent extends ElementQueryComponent {
         this.elementQueryComponent = elementQueryComponent;
     }
 
-    @Override
-    public <T> T accept(final ElementVisitor<T> visitor) {
-        return visitor.visit(this);
-    }
-
     public static LabelQueryComponent label(final ElementQueryComponent elementQueryComponent) {
         return new LabelQueryComponent(elementQueryComponent);
     }

@@ -1,6 +1,5 @@
-package ch.qarts.specalizr.intg.selenium.action.impl.xpath;
+package ch.qarts.specalizr.intg.selenium.action.impl.xpath.resolver.impl;
 
-import ch.qarts.specalizr.api.element.Element;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
@@ -13,8 +12,6 @@ import java.time.Duration;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static ch.qarts.specalizr.intg.selenium.action.impl.xpath.XPathUtils.toXPath;
-
 /**
  * A <b>reasonably performant</b> {@link By} implementation that matches all provided Bys <p>
  */
@@ -22,21 +19,10 @@ import static ch.qarts.specalizr.intg.selenium.action.impl.xpath.XPathUtils.toXP
 @Log4j
 class ByMatchAll extends By {
 
-    private final Element element;
     private final List<By> byList = new ArrayList<>();
 
-    ByMatchAll(final Element element, final List<By> parseElementQueryComponents) {
-        this.element = element;
+    ByMatchAll(final List<By> parseElementQueryComponents) {
         this.byList.addAll(parseElementQueryComponents);
-    }
-
-    public By wrapBy(final By by) {
-        if (by instanceof ByProximity) {
-            // adding hint to proximity for performance
-            return ((ByProximity) by).with(By.xpath(toXPath(this.element)));
-        } else {
-            return by;
-        }
     }
 
     @Override
@@ -48,7 +34,7 @@ class ByMatchAll extends By {
                     .withTimeout(Duration.ofSeconds(30))
                     .ignoring(NoSuchElementException.class)
                     .until(searchContext -> {
-                        final List<WebElement> elements = context.findElements(this.wrapBy(by));
+                        final List<WebElement> elements = context.findElements(by);
                         ByMatchAll.log.debug(by + " : " + elements.size());
                         return elements;
                     })

@@ -3,7 +3,7 @@ package ch.qarts.specalizr.intg.selenium.action;
 import ch.qarts.specalizr.api.action.definition.CheckUncheckActionDefinition;
 import ch.qarts.specalizr.api.element.Toggable;
 import ch.qarts.specalizr.intg.selenium.action.impl.player.CheckUncheckActionDefinitionPlayer;
-import ch.qarts.specalizr.intg.selenium.action.impl.xpath.ElementResolver;
+import ch.qarts.specalizr.intg.selenium.action.impl.xpath.resolver.impl.ElementResolverFacade;
 import ch.qarts.specalizr.intg.selenium.common.LocatorTestBase;
 import ch.qarts.specalizr.intg.selenium.common.Page;
 import org.junit.jupiter.api.Test;
@@ -38,7 +38,7 @@ public abstract class CheckUncheckActionDefinitionPlayerTest extends LocatorTest
         // given
         final var page = Page.builder().scriptContent("").bodyContent(bodyContent).build();
         this.webDriver.navigate().to(page.generateAsDataUrl());
-        final var checkUncheckActionPlayer = new CheckUncheckActionDefinitionPlayer(this.webDriver, new ElementResolver());
+        final var checkUncheckActionPlayer = new CheckUncheckActionDefinitionPlayer(this.webDriver, ElementResolverFacade.createDefault(webDriver));
         // when
         checkUncheckActionPlayer.play(action);
         // then
