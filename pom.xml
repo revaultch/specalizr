@@ -5,7 +5,7 @@
     <groupId>ch.qarts.specalizr</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.4</version>
+    <version>0.5-SNAPSHOT</version>
     <name>specalizr parent</name>
     <description>specalizr parent pom</description>
     <url>https://github.com/borjafernandez/specalizr</url>
@@ -57,7 +57,7 @@
         <connection>scm:git:git://github.com/borjafernandez/specalizr.git</connection>
         <developerConnection>scm:git:git@github.com:borjafernandez/specalizr.git</developerConnection>
         <url>http://github.com/borjafernandez/specalizr</url>
-        <tag>parent-0.4</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
