@@ -18,6 +18,16 @@ public class ByPlaceholderLocatorTest extends LocatorTestBase {
     @Test
     public void shouldFindElementByPlaceholder() {
         final var page = Page.builder().bodyContent("<div id='hello'>hello</div><input id='hola' placeholder='some placeholder'>hola</div>").build();
+        final var element = item(having(placeholder("some placeholder")));
+        this.webDriver.navigate().to(page.generateAsDataUrl());
+        final var webElement = this.find(this.elementResolverFacade.resolve(element));
+        assertEquals("hola", webElement.getAttribute("id"));
+    }
+
+
+    @Test
+    public void shouldFindElementByPlaceholder2() {
+        final var page = Page.builder().bodyContent("<div id='hello'>hello</div><input id='hola' placeholder='some placeholder'>hola</div>").build();
         final var element = item(having(placeholder(with(text("some placeholder")))));
         this.webDriver.navigate().to(page.generateAsDataUrl());
         final var webElement = this.find(this.elementResolverFacade.resolve(element));

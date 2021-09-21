@@ -16,4 +16,7 @@ public class LabelQueryComponent extends ElementQueryComponent {
         return new LabelQueryComponent(elementQueryComponent);
     }
 
+    public static LabelQueryComponent label(final String text) {
+        return new LabelQueryComponent(TextQueryComponent.text(text));
+    }
 }

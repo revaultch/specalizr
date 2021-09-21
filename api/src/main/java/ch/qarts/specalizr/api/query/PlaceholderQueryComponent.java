@@ -16,5 +16,9 @@ public class PlaceholderQueryComponent extends ElementQueryComponent {
         return new PlaceholderQueryComponent(elementQueryComponent);
     }
 
+    public static PlaceholderQueryComponent placeholder(final String text) {
+        return new PlaceholderQueryComponent(TextQueryComponent.text(text));
+    }
+
 
 }

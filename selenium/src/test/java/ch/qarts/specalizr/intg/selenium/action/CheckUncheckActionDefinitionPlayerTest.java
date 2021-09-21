@@ -11,7 +11,7 @@ import org.openqa.selenium.By;
 
 import static ch.qarts.specalizr.api.action.definition.CheckUncheckActionDefinition.check;
 import static ch.qarts.specalizr.api.action.definition.CheckUncheckActionDefinition.uncheck;
-import static ch.qarts.specalizr.api.element.CheckBox.checkBox;
+import static ch.qarts.specalizr.api.element.CheckBox.checkbox;
 import static ch.qarts.specalizr.api.element.RadioButton.radioButton;
 import static ch.qarts.specalizr.api.query.ElementQueryComponent.with;
 import static ch.qarts.specalizr.api.query.TextQueryComponent.text;
@@ -30,7 +30,7 @@ public abstract class CheckUncheckActionDefinitionPlayerTest extends LocatorTest
     }
 
     private void initToggable(final String type) {
-        this.toggable = type.equals("checkbox") ? checkBox(with(text("123Label"))) : radioButton(with(text("123Label")));
+        this.toggable = type.equals("checkbox") ? checkbox(with(text("123Label"))) : radioButton(with(text("123Label")));
     }
 
 

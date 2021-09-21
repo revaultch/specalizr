@@ -16,9 +16,9 @@ public class PlaceholderQueryComponentResolver extends ElementQueryComponentReso
     @Override
     public By resolve(PlaceholderQueryComponent placeholderQueryComponent) {
         if (placeholderQueryComponent.getElementQueryComponent() instanceof TextQueryComponent) {
-            return By.xpath(format("%s[@placeholder='%s']", this.elementXPath, ((TextQueryComponent)placeholderQueryComponent.getElementQueryComponent()).getText()));
+            return By.xpath(format("%1$s[@placeholder='%2$s'] | %1$s[@aria-label='%2$s']", this.elementXPath, ((TextQueryComponent) placeholderQueryComponent.getElementQueryComponent()).getText()));
         } else if (placeholderQueryComponent.getElementQueryComponent() instanceof ContainsQueryComponent) {
-            return By.xpath(format("%s[contains(@placeholder, '%s')]",this.elementXPath, ((ContainsQueryComponent) placeholderQueryComponent.getElementQueryComponent()).getTextLocation().getText()));
+            return By.xpath(format("%1$s[contains(@placeholder, '%2$s')] | %1$s[contains(@aria-label, '%2$s')]", this.elementXPath, ((ContainsQueryComponent) placeholderQueryComponent.getElementQueryComponent()).getTextLocation().getText()));
         } else {
             throw new IllegalStateException(format("Unexpected type %s", placeholderQueryComponent.getElementQueryComponent().getClass()));
         }

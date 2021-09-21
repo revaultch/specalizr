@@ -28,11 +28,11 @@ public class ElementResolverFacade {
         return resolver.resolve(element);
     }
 
-    void registerElementResolver(Class<ElementResolver<?>> elementResolverClass) {
+    public void registerElementResolver(Class<ElementResolver<?>> elementResolverClass) {
         ElementResolverRegistry.getInstance().registerElementResolver(elementResolverClass);
     }
 
-    void registerElementQueryComponentResolver(Class<ElementQueryComponentResolver<?>> elementQueryComponentResolverClass) {
+    public void registerElementQueryComponentResolver(Class<? extends ElementQueryComponentResolver<?>> elementQueryComponentResolverClass) {
         ElementResolverRegistry.getInstance().registerElementQueryComponentResolver(elementQueryComponentResolverClass);
     }
 

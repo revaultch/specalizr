@@ -32,7 +32,13 @@ import static ch.qarts.specalizr.api.query.ElementQueryComponent.with;
 import static ch.qarts.specalizr.api.query.ProximityQueryComponent.*;
 import static ch.qarts.specalizr.api.query.TextQueryComponent.text;
 
-public class GoogleUnitConverter {
+/**
+ * This is an example of what can be accomplished with this framework.<p>
+ * It will not be necessarily maintained to match website changes. Expect it to fail in the long run <p>
+ * It is also by no means an invitation to infringe crawling policies<p>
+ * Please, use wisely <p>
+ */
+public class GoogleUnitConverterExample {
 
     private WebDriver webDriver;
 

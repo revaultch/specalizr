@@ -15,7 +15,7 @@ public abstract class ElementQueryComponentResolver<Q extends ElementQueryCompon
 
     protected final String elementXPath;
 
-    ElementQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
+    protected ElementQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
         this.resolverContext = resolverContext;
         this.elementXPath = elementXPath;
     }

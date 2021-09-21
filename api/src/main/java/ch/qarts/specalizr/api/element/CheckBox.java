@@ -8,7 +8,7 @@ public class CheckBox extends ElementBase implements Clickable, Toggable {
         super(elementQueryComponentList);
     }
 
-    public static CheckBox checkBox(final ElementQueryComponent... elementQueryComponentList) {
+    public static CheckBox checkbox(final ElementQueryComponent... elementQueryComponentList) {
         return new CheckBox(elementQueryComponentList);
     }
 
