@@ -10,18 +10,22 @@ An implementation and platform agnostic, human-readable visual test scenario def
 
 ## Yes but ... why ?
 
-As a test engineer, if you're reading this, chances are that you've been struggling with automation frameworks for some time and you've come accross at least 2 or 3 of the following issues:
+As a test engineer, if you're reading this, chances are that you've been struggling with automation frameworks for some
+time and you've come accross at least 2 or 3 of the following issues:
 
-- When implementing test automation scenarios we usually focus too much on implementation. This produces unreliable tests and it can be painful / time consuming to find the root cause of a failure.
+- When implementing test automation scenarios we usually focus too much on implementation. This produces unreliable
+  tests and it can be painful / time consuming to find the root cause of a failure.
 
-- Your management looses faith in your test suite, because too many failures come from flaky tests or developers changing implementation details.
+- Your management looses faith in your test suite, because too many failures come from flaky tests or developers
+  changing implementation details.
 
-- Test automation usually comes after feature implementation. There is simply no proper way to provide a test suite at the end of your Sprint. So you end up targeting non-regression ... Agile ?
+- Test automation usually comes after feature implementation. There is simply no proper way to provide a test suite at
+  the end of your Sprint. So you end up targeting non-regression ... Agile ?
 
-- Generally speaking as the test suite grows, it is harder to maintain readability, event with BDD / Cucumber frameworks.
+- Generally speaking as the test suite grows, it is harder to maintain readability, event with BDD / Cucumber
+  frameworks.
 
 Specalizr tries to address all these issues and more ...
-
 
 ## Yes but ... how ?
 
@@ -33,14 +37,15 @@ Specalizr tries to address all these issues and more ...
 
 ## Project Goal :
 
-Enable visual scenario ATDD in Java. Allow software producers and integrators to deliver E2E / front-end tests together with wireframes.
+Enable visual scenario ATDD in Java. Allow software producers and integrators to deliver E2E / front-end tests together
+with wireframes.
 
 Streamline collaboration between all project stakeholders.
 
 Example for a google unit conversion use case :
 
 <p align="center">
-  <img src="./selenium/src/main/resources/google-test.png" />
+  <img src="./web/src/main/resources/google-test.png" />
 </p>
 
 ``` java
@@ -55,7 +60,7 @@ Example for a google unit conversion use case :
                 .then(write("50").into(leftField))
                 .andLastly(validate(that(rightField), containsText("80.4672")));
 
-        play(actions, with(seleniumPlayer));
+        play(actions, with(webPlayer));
 ```
 
 ## Concepts
@@ -99,10 +104,10 @@ You can then chain actions aka ActionDefinition by using "then" keyword.
 
 ```
 
-
 ### Execute a scenario
 
-Once you have defined a scenario, you can play it using an ActionDefinitionPlayerRegistry. This registry is responsible for providing players for ActionDefinition instances.
+Once you have defined a scenario, you can play it using an ActionDefinitionPlayerRegistry. This registry is responsible
+for providing players for ActionDefinition instances.
 
 ``` java
         play(actions, with(seleniumPlayer));
@@ -112,14 +117,13 @@ Once you have defined a scenario, you can play it using an ActionDefinitionPlaye
 
 #### New command
 
-In order to create a new command you need to implement ActionDefinition interface 
+In order to create a new command you need to implement ActionDefinition interface
 
 Check api for examples
 
 ``` java
 public class WriteActionDefinition<T extends Writable> implements ActionDefinition 
 ```
-
 
 #### New element
 
@@ -131,8 +135,8 @@ Check api for examples
 public class Button extends ElementBase implements Clickable 
 ```
 
-
 #### New query component
+
 In order to create a new query component you need to extend ElementQueryComponent class
 
 Check api for examples
@@ -141,9 +145,8 @@ Check api for examples
 public class TextQueryComponent extends ElementQueryComponent {
 ```
 
-
 ## Implementations
 
-There is currently a [Selenium](./selenium) implementation available. 
+There is currently a [Web](./web) implementation available. 
 
 
