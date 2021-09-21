@@ -5,7 +5,7 @@
     <groupId>ch.qarts.specalizr</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.2</version>
+    <version>0.3-SNAPSHOT</version>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -54,7 +54,7 @@
         <connection>scm:git:git://github.com/borjafernandez/specalizr.git</connection>
         <developerConnection>scm:git:git@github.com:borjafernandez/specalizr.git</developerConnection>
         <url>http://github.com/borjafernandez/specalizr</url>
-        <tag>parent-0.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
