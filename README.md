@@ -65,7 +65,7 @@ Example for a google unit conversion use case :
 
 
 <p align="center">
-  <img width="720" src="https://specalizr.surge.sh/demo.gif" />
+  <img width="720px" src="./web/src/main/resources/demo.gif?raw=true" />
 </p>
 
 ## Concepts
