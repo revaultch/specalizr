@@ -29,6 +29,7 @@ import static java.lang.String.format;
 
 /**
  * This is an example of what can be accomplished with this framework.<p>
+ * Depending on your current context, this may or may not work as is. <p>
  * It will not be necessarily maintained to match website changes. Expect it to fail in the long run <p>
  * It is also by no means an invitation to infringe crawling policies<p>
  * Please, use wisely <p>
