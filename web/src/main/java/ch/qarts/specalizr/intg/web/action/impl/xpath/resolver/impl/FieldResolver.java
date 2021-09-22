@@ -11,7 +11,7 @@ public class FieldResolver extends ElementResolver<Field> {
 
     @Override
     public By resolve(Field element) {
-        return merge("(//input[not(@type)] | //input[@type='text'] | //input[@type='password'] | //input[@type='email']  | //textarea)", element.getElementQueryComponentList());
+        return merge("(//input[not(@type)] | //input[@type='text'] | //input[@type='password'] | //input[@type='email'] | //input[@type='search']  | //textarea)", element.getElementQueryComponentList());
     }
 
 }

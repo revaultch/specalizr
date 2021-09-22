@@ -15,7 +15,7 @@ public class ContainsQueryComponentResolver extends ElementQueryComponentResolve
 
     @Override
     public By resolve(ContainsQueryComponent elementToBeResolved) {
-        return By.xpath(format(attributeTextMatchers("[contains(text(), '%1$s')]", "[contains(@value, '%1$s')]", "[@id=//label[contains(text(),'%1$s')]/@for]", "[option[@selected][contains(text(),'%1$s')]]").stream().map((item) -> format("%s%s", this.elementXPath, item)).collect(Collectors.joining(" | ")), elementToBeResolved.getTextLocation().getText()));
+        return By.xpath(format(attributeTextMatchers("[contains(normalize-space(text()), '%1$s')]", "[contains(@value, '%1$s')]", "[@id=//label[contains(normalize-space(text()),'%1$s')]/@for]", "[option[@selected][contains(normalize-space(text()),'%1$s')]]").stream().map((item) -> format("%s%s", this.elementXPath, item)).collect(Collectors.joining(" | ")), elementToBeResolved.getTextLocation().getText()));
     }
 
 }

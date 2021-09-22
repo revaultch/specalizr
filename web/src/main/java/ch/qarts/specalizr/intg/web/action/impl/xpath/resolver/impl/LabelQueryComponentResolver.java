@@ -16,9 +16,9 @@ public class LabelQueryComponentResolver extends ElementQueryComponentResolver<L
     @Override
     public By resolve(LabelQueryComponent elementToBeResolved) {
         if (elementToBeResolved.getElementQueryComponent() instanceof TextQueryComponent) {
-            return By.xpath(format("%s[@id=//label[text()='%s']/@for]", this.elementXPath, ((TextQueryComponent) elementToBeResolved.getElementQueryComponent()).getText()));
+            return By.xpath(format("%s[@id=//label[normalize-space(text())='%s']/@for]", this.elementXPath, ((TextQueryComponent) elementToBeResolved.getElementQueryComponent()).getText()));
         } else if (elementToBeResolved.getElementQueryComponent() instanceof ContainsQueryComponent) {
-            return By.xpath(format("%s[@id=//label[contains(text(),'%s')]/@for]", this.elementXPath, ((ContainsQueryComponent) elementToBeResolved.getElementQueryComponent()).getTextLocation().getText()));
+            return By.xpath(format("%s[@id=//label[contains(normalize-space(text()),'%s')]/@for]", this.elementXPath, ((ContainsQueryComponent) elementToBeResolved.getElementQueryComponent()).getTextLocation().getText()));
         } else {
             throw new IllegalStateException(format("Unexpected type %s", elementToBeResolved.getElementQueryComponent().getClass()));
         }
