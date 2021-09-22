@@ -63,6 +63,11 @@ Example for a google unit conversion use case :
         play(actions, with(webPlayer));
 ```
 
+
+<p align="center">
+  <img width="720" src="https://specalizr.surge.sh/demo.gif" />
+</p>
+
 ## Concepts
 
 ### Action
@@ -149,4 +154,8 @@ public class TextQueryComponent extends ElementQueryComponent {
 
 There is currently a [Web](./web) implementation available. 
 
+
+# Credits
+
+Inspired by [taiko.dev](https://taiko.dev)
 
