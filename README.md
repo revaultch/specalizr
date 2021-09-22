@@ -155,6 +155,31 @@ public class TextQueryComponent extends ElementQueryComponent {
 There is currently a [Web](./web) implementation available. 
 
 
+## Dependencies
+
+In order to make things happen you need to embed the following dependencies :
+
+- API (contains DSL)
+
+``` xml
+        <dependency>
+            <groupId>ch.qarts.specalizr</groupId>
+            <artifactId>api</artifactId>
+            <version>VERSION_HERE</version>
+        </dependency>
+``` 
+
+- Any player (here web player powered by selenium)
+
+``` xml
+        <dependency>
+            <groupId>ch.qarts.specalizr</groupId>
+            <artifactId>web</artifactId>
+            <version>VERSION_HERE</version>
+        </dependency>
+``` 
+
+
 # Credits
 
 Inspired by [taiko.dev](https://taiko.dev)
