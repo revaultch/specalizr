@@ -6,4 +6,5 @@ public interface ValidationConditionVisitor<T> {
 
     Validator<T> visit(ExistsValidationCondition existsValidationCondition);
 
+    Validator<T> visit(DoesNotExistValidationCondition doesNotExistValidationCondition);
 }

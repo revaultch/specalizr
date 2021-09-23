@@ -64,6 +64,8 @@ public class AmazonSignupFormExample {
 
     @Test
     public void shouldTestSomething() {
+        // NOTE that this will fail from time to time due to a random popup appearing over Sell link
+
         final var webPlayer = new WebPlayer(this.webDriver, ElementResolverFacade.createDefault(webDriver));
         final var actions =
                 first(click(item(with(text("Sell")))))

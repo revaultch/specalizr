@@ -37,7 +37,7 @@ public class SeleniumUtils {
     public static WebElement singlify(final SearchContext searchContext, final By by) {
         final var webElementList = searchContext.findElements(by).stream().filter(webElement -> webElement.isDisplayed() && webElement.isEnabled()).collect(Collectors.toList());
         if (webElementList.size() != 1) {
-            throw new IllegalStateException(format("Unable to locate single element. Found %d items that match : %s", webElementList.size(), by.toString()));
+            throw new NoElementFound(format("Unable to locate single element. Found %d items that match : %s", webElementList.size(), by.toString()));
         }
         return webElementList.get(0);
     }

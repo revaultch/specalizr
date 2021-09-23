@@ -1,9 +1,6 @@
 package ch.qarts.specalizr.intg.web.action.impl.player;
 
-import ch.qarts.specalizr.api.action.definition.validation.ContainsTextValidationCondition;
-import ch.qarts.specalizr.api.action.definition.validation.ExistsValidationCondition;
-import ch.qarts.specalizr.api.action.definition.validation.ValidationConditionVisitor;
-import ch.qarts.specalizr.api.action.definition.validation.Validator;
+import ch.qarts.specalizr.api.action.definition.validation.*;
 import org.openqa.selenium.WebElement;
 
 import java.util.Objects;
@@ -25,4 +22,10 @@ public class SeleniumValidationConditionResolver implements ValidationConditionV
         };
     }
 
+    @Override
+    public Validator<WebElement> visit(DoesNotExistValidationCondition doesNotExistValidationCondition) {
+        return objectTo -> {
+            assert objectTo == null;
+        };
+    }
 }
