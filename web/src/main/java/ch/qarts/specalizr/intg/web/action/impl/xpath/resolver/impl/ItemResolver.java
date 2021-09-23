@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class ItemResolver extends ElementResolver<Item> {
 
-    ItemResolver(ResolverContext resolverContext) {
+    protected ItemResolver(ResolverContext resolverContext) {
         super(resolverContext);
     }
 

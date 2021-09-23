@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class SelectResolver extends ElementResolver<Select> {
 
-    SelectResolver(ResolverContext resolverContext) {
+    protected SelectResolver(ResolverContext resolverContext) {
         super(resolverContext);
     }
 

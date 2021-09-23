@@ -5,7 +5,7 @@ import ch.qarts.specalizr.api.query.ElementQueryComponent;
 
 public class Link extends ElementBase implements Clickable {
 
-    private Link(final ElementQueryComponent... elementQueryComponentList) {
+    protected Link(final ElementQueryComponent... elementQueryComponentList) {
         super(elementQueryComponentList);
     }
 

@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 public class ProximityComponentResolver extends ElementQueryComponentResolver<ProximityQueryComponent> {
 
 
-    ProximityComponentResolver(ResolverContext resolverContext, String elementXPath) {
+    protected ProximityComponentResolver(ResolverContext resolverContext, String elementXPath) {
         super(resolverContext, elementXPath);
     }
 

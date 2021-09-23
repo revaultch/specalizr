@@ -8,7 +8,7 @@ public class PlaceholderQueryComponent extends ElementQueryComponent {
     private final ElementQueryComponent elementQueryComponent;
 
 
-    private PlaceholderQueryComponent(final ElementQueryComponent elementQueryComponent) {
+    protected PlaceholderQueryComponent(final ElementQueryComponent elementQueryComponent) {
         this.elementQueryComponent = elementQueryComponent;
     }
 

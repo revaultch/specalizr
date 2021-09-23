@@ -9,7 +9,7 @@ public class TextQueryComponent extends ElementQueryComponent {
     @Getter
     private final String text;
 
-    private TextQueryComponent(final String text) {
+    protected TextQueryComponent(final String text) {
         this.text = text;
     }
 

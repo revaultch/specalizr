@@ -9,7 +9,7 @@ public class TextColorLocation {
     @Getter
     private final Colors color;
 
-    private TextColorLocation(final Colors color) {
+    protected TextColorLocation(final Colors color) {
         this.color = color;
     }
 

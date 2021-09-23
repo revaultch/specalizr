@@ -5,7 +5,7 @@ import ch.qarts.specalizr.api.query.ElementQueryComponent;
 
 public class Select extends ElementBase implements Selectable {
 
-    private Select(final ElementQueryComponent... elementQueryComponentList) {
+    protected Select(final ElementQueryComponent... elementQueryComponentList) {
         super(elementQueryComponentList);
     }
 

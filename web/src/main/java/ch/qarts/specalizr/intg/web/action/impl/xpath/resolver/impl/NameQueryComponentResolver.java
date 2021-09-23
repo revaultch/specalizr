@@ -9,7 +9,7 @@ import static java.lang.String.format;
 
 public class NameQueryComponentResolver extends ElementQueryComponentResolver<NameQueryComponent> {
 
-    NameQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
+    protected NameQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
         super(resolverContext, elementXPath);
     }
 

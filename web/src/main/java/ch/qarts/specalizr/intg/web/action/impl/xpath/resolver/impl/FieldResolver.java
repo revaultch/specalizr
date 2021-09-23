@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class FieldResolver extends ElementResolver<Field> {
 
-    FieldResolver(ResolverContext resolverContext) {
+    protected FieldResolver(ResolverContext resolverContext) {
         super(resolverContext);
     }
 

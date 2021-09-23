@@ -4,7 +4,7 @@ import ch.qarts.specalizr.api.query.ElementQueryComponent;
 
 public class RadioButton extends ElementBase implements Clickable, Toggable {
 
-    private RadioButton(final ElementQueryComponent... elementQueryComponentList) {
+    protected RadioButton(final ElementQueryComponent... elementQueryComponentList) {
         super(elementQueryComponentList);
     }
 

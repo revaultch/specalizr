@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class ButtonResolver extends ElementResolver<Button> {
 
-    ButtonResolver(ResolverContext resolverContext) {
+    protected ButtonResolver(ResolverContext resolverContext) {
         super(resolverContext);
     }
 

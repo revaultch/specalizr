@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class CheckBoxResolver extends ElementResolver<CheckBox> {
 
-    CheckBoxResolver(ResolverContext resolverContext) {
+    protected CheckBoxResolver(ResolverContext resolverContext) {
         super(resolverContext);
     }
 

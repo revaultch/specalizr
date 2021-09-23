@@ -8,7 +8,7 @@ public class NameQueryComponent extends ElementQueryComponent {
     private final ElementQueryComponent elementQueryComponent;
 
 
-    private NameQueryComponent( final ElementQueryComponent elementQueryComponent) {
+    protected NameQueryComponent( final ElementQueryComponent elementQueryComponent) {
         this.elementQueryComponent = elementQueryComponent;
     }
 

@@ -9,7 +9,7 @@ import static java.lang.String.format;
 
 public class LabelQueryComponentResolver extends ElementQueryComponentResolver<LabelQueryComponent> {
 
-    LabelQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
+    protected LabelQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
         super(resolverContext, elementXPath);
     }
 

@@ -79,7 +79,7 @@
                 <version>2.22.2</version>
                 <configuration>
                     <includes>
-                        <include>ch.qarts.specalizr.intg.web.**</include>
+                        <include>ch.qarts.specalizr.intg.web.**,ch.qarts.specalizr.unit.**</include>
                     </includes>
                 </configuration>
             </plugin>

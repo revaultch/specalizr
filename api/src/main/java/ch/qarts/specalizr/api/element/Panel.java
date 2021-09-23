@@ -5,7 +5,7 @@ import ch.qarts.specalizr.api.query.ElementQueryComponent;
 
 public class Panel extends ElementBase implements Clickable, Validatable {
 
-    private Panel(final ElementQueryComponent... elementQueryComponentList) {
+    protected Panel(final ElementQueryComponent... elementQueryComponentList) {
         super(elementQueryComponentList);
     }
 

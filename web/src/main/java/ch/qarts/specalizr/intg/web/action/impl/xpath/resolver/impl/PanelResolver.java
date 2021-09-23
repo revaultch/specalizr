@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class PanelResolver extends ElementResolver<Panel> {
 
-    PanelResolver(ResolverContext resolverContext) {
+    protected PanelResolver(ResolverContext resolverContext) {
         super(resolverContext);
     }
 

@@ -8,7 +8,7 @@ public class LabelQueryComponent extends ElementQueryComponent {
     @Getter
     private final ElementQueryComponent elementQueryComponent;
 
-    private LabelQueryComponent(final ElementQueryComponent elementQueryComponent) {
+    protected LabelQueryComponent(final ElementQueryComponent elementQueryComponent) {
         this.elementQueryComponent = elementQueryComponent;
     }
 

@@ -5,7 +5,7 @@ import ch.qarts.specalizr.api.query.ElementQueryComponent;
 
 public class Field extends ElementBase implements Writable, Validatable {
 
-    private Field(final ElementQueryComponent... elementQueryComponentList) {
+    protected Field(final ElementQueryComponent... elementQueryComponentList) {
         super(elementQueryComponentList);
     }
 

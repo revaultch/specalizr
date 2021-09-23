@@ -4,7 +4,7 @@ import ch.qarts.specalizr.api.query.ElementQueryComponent;
 
 public class Button extends ElementBase implements Clickable {
 
-    private Button(final ElementQueryComponent... elementQueryComponentList) {
+    protected Button(final ElementQueryComponent... elementQueryComponentList) {
         super(elementQueryComponentList);
     }
 

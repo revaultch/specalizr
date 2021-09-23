@@ -7,7 +7,7 @@ public class ContainsQueryComponent extends ElementQueryComponent {
     @Getter
     private final TextQueryComponent textLocation;
 
-    private ContainsQueryComponent(final TextQueryComponent textLocation) {
+    protected ContainsQueryComponent(final TextQueryComponent textLocation) {
         this.textLocation = textLocation;
     }
 
@@ -15,5 +15,8 @@ public class ContainsQueryComponent extends ElementQueryComponent {
         return new ContainsQueryComponent(textVisibleElementQuery);
     }
 
+    public static ContainsQueryComponent containing(final String text) {
+        return containing(TextQueryComponent.text(text));
+    }
 
 }

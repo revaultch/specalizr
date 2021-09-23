@@ -31,7 +31,7 @@ public abstract class ElementResolver<E extends Element> implements Resolver<By,
     @SneakyThrows
     private <T extends ElementQueryComponent> By mapOneElementQueryComponent(String root, T elementQueryComponent) {
         var elementResolverRegistry = ElementResolverRegistry.getInstance();
-        var constructor = elementResolverRegistry.queryComponentResolverFor(elementQueryComponent).getDeclaredConstructors()[0];
+        var constructor = elementResolverRegistry.elementQueryComponentFor(elementQueryComponent).getDeclaredConstructors()[0];
         constructor.setAccessible(true);
         return ((ElementQueryComponentResolver<T>) constructor.newInstance(resolverContext, root)).resolve(elementQueryComponent);
     }

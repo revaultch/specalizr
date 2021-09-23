@@ -23,7 +23,7 @@ public class ProximityQueryComponent extends ElementQueryComponent {
     @Getter
     private final Proximity proximity;
 
-    private ProximityQueryComponent(final Proximity proximity, final Element element) {
+    protected ProximityQueryComponent(final Proximity proximity, final Element element) {
         this.proximity = proximity;
         this.element = element;
     }

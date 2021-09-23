@@ -5,13 +5,13 @@ import org.openqa.selenium.By;
 
 public class ImageResolver extends ElementResolver<Image> {
 
-    ImageResolver(ResolverContext resolverContext) {
+    protected ImageResolver(ResolverContext resolverContext) {
         super(resolverContext);
     }
 
     @Override
     public By resolve(Image element) {
-        return merge("(//button | //input[@type='submit'] | //*[@role='button'])", element.getElementQueryComponentList());
+        return merge("//img", element.getElementQueryComponentList());
     }
 
 }

@@ -9,7 +9,7 @@ import static java.lang.String.format;
 
 public class PlaceholderQueryComponentResolver extends ElementQueryComponentResolver<PlaceholderQueryComponent> {
 
-    PlaceholderQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
+    protected PlaceholderQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
         super(resolverContext, elementXPath);
     }
 

@@ -4,7 +4,7 @@ import ch.qarts.specalizr.api.query.ElementQueryComponent;
 
 public class Image extends ElementBase implements Clickable {
 
-    private Image(final ElementQueryComponent... elementQueryComponentList) {
+    protected Image(final ElementQueryComponent... elementQueryComponentList) {
         super(elementQueryComponentList);
     }
 

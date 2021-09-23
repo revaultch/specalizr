@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class LinkResolver extends ElementResolver<Link> {
 
-    LinkResolver(ResolverContext resolverContext) {
+    protected LinkResolver(ResolverContext resolverContext) {
         super(resolverContext);
     }
 

@@ -9,7 +9,7 @@ import static java.lang.String.format;
 
 public class IdQueryComponentResolver extends ElementQueryComponentResolver<IdQueryComponent> {
 
-    IdQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
+    protected IdQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
         super(resolverContext, elementXPath);
     }
 

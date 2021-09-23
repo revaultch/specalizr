@@ -5,6 +5,7 @@ import ch.qarts.specalizr.api.player.ActionDefinitionPlayer;
 import ch.qarts.specalizr.intg.web.action.impl.NoElementFound;
 import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ElementResolverFacade;
 import lombok.AllArgsConstructor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -25,8 +26,8 @@ public class ValidateActionDefinitionPlayer implements ActionDefinitionPlayer<Va
         WebElement webElement = null;
         try {
             webElement = safelyLocate(this.webDriver, this.elementResolverFacade.resolve(validationActionDefinition.getValidatableElement()));
-        } catch (NoElementFound nef) {
-            // ignore here
+        } catch (NoElementFound | TimeoutException e) {
+            // ignore
         }
         seleniumValidator.validate(webElement);
     }

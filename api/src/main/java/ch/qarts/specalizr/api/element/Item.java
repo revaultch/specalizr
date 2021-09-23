@@ -7,7 +7,7 @@ import ch.qarts.specalizr.api.query.ElementQueryComponent;
  */
 public class Item extends ElementBase implements Clickable, Validatable {
 
-    private Item(final ElementQueryComponent... elementQueryComponentList) {
+    protected Item(final ElementQueryComponent... elementQueryComponentList) {
         super(elementQueryComponentList);
     }
 

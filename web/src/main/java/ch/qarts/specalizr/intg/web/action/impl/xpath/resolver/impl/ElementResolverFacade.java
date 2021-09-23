@@ -28,7 +28,7 @@ public class ElementResolverFacade {
         return resolver.resolve(element);
     }
 
-    public void registerElementResolver(Class<ElementResolver<?>> elementResolverClass) {
+    public void registerElementResolver(Class<? extends ElementResolver<?>> elementResolverClass) {
         ElementResolverRegistry.getInstance().registerElementResolver(elementResolverClass);
     }
 

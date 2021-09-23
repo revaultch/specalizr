@@ -12,7 +12,7 @@ public class BackgroundColorQueryComponent extends ElementQueryComponent {
         this.color = color;
     }
 
-    public static BackgroundColorQueryComponent backgroundColor(final Colors color) {
+    protected static BackgroundColorQueryComponent backgroundColor(final Colors color) {
         return new BackgroundColorQueryComponent(color);
     }
 

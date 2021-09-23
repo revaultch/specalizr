@@ -4,7 +4,7 @@ import ch.qarts.specalizr.api.query.ElementQueryComponent;
 
 public class CheckBox extends ElementBase implements Clickable, Toggable {
 
-    private CheckBox(final ElementQueryComponent... elementQueryComponentList) {
+    protected CheckBox(final ElementQueryComponent... elementQueryComponentList) {
         super(elementQueryComponentList);
     }
 

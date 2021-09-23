@@ -9,7 +9,7 @@ import static java.lang.String.format;
 
 public class ContainsQueryComponentResolver extends ElementQueryComponentResolver<ContainsQueryComponent> {
 
-    ContainsQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
+    protected ContainsQueryComponentResolver(ResolverContext resolverContext, String elementXPath) {
         super(resolverContext, elementXPath);
     }
 

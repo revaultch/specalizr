@@ -8,7 +8,7 @@ public class IdQueryComponent extends ElementQueryComponent {
     private final ElementQueryComponent elementQueryComponent;
 
 
-    private IdQueryComponent(final ElementQueryComponent elementQueryComponent) {
+    protected IdQueryComponent(final ElementQueryComponent elementQueryComponent) {
         this.elementQueryComponent = elementQueryComponent;
     }
 

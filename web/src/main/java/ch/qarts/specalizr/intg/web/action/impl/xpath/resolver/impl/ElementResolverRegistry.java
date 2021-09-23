@@ -4,6 +4,7 @@ import ch.qarts.specalizr.api.element.Element;
 import ch.qarts.specalizr.api.query.ElementQueryComponent;
 
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,16 +53,30 @@ public class ElementResolverRegistry {
     }
 
 
-    @SuppressWarnings("unchecked")
-    public <T extends Element> Class<ElementResolver<T>> elementResolverFor(T element) {
-        return (Class<ElementResolver<T>>) RESOLVER_HOLDER.stream().filter(resolverClass -> ((ParameterizedType) resolverClass.getGenericSuperclass())
-                .getActualTypeArguments()[0].equals(element.getClass())).findFirst().orElseThrow(() -> new ResolverNotFoundException(element));
+    private Type getResolverArgumentType(Class<?> resolver) {
+        Class<?> found = resolver;
+        while (found != null && !found.equals(Object.class)) {
+            if (found.getGenericSuperclass() != null && found.getGenericSuperclass() instanceof ParameterizedType) {
+                var generic = (ParameterizedType)found.getGenericSuperclass();
+                if (generic.getRawType().equals(ElementResolver.class) || generic.getRawType().equals(ElementQueryComponentResolver.class)) {
+                    return generic.getActualTypeArguments()[0];
+                }
+            }
+            found = found.getSuperclass();
+        }
+        throw new IllegalStateException("No resolver argument type found for " + resolver);
     }
 
     @SuppressWarnings("unchecked")
-    public <T extends ElementQueryComponent> Class<ElementQueryComponentResolver<T>> queryComponentResolverFor(T element) {
-        return (Class<ElementQueryComponentResolver<T>>) RESOLVER_HOLDER.stream().filter(resolverClass -> ((ParameterizedType) resolverClass.getGenericSuperclass())
-                .getActualTypeArguments()[0].equals(element.getClass())).findFirst().orElseThrow(() -> new ResolverNotFoundException(element));
+    public <T extends Element> Class<ElementResolver<T>> elementResolverFor(T element) {
+        return (Class<ElementResolver<T>>) RESOLVER_HOLDER.stream().filter(resolverClass -> getResolverArgumentType(resolverClass).equals(element.getClass())).findFirst().orElseThrow(() -> new ResolverNotFoundException(element));
+    }
+
+
+    @SuppressWarnings("unchecked")
+    public <T extends ElementQueryComponent> Class<ElementQueryComponentResolver<T>> elementQueryComponentFor(T elementQueryComponent) {
+        return (Class<ElementQueryComponentResolver<T>>) RESOLVER_HOLDER.stream()
+                .filter(resolverClass -> getResolverArgumentType(resolverClass).equals(elementQueryComponent.getClass())).findFirst().orElseThrow(() -> new ResolverNotFoundException(elementQueryComponent));
     }
 
 

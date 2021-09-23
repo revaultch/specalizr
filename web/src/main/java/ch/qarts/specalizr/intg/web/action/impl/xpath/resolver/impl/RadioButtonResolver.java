@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class RadioButtonResolver extends ElementResolver<RadioButton> {
 
-    RadioButtonResolver(ResolverContext resolverContext) {
+    protected RadioButtonResolver(ResolverContext resolverContext) {
         super(resolverContext);
     }
 
