@@ -5,44 +5,38 @@
 # Specalizr
 
 An implementation and platform agnostic, human-readable visual test scenario definition [DSL](./api).
+<br>
 
-![Full-build CI](https://github.com/borjafernandez/specalizr/actions/workflows/full-build.yaml/badge.svg)
+![Build](https://github.com/borjafernandez/specalizr/actions/workflows/full-build.yaml/badge.svg)
 
-## Yes but ... why ?
+<br>
 
-As a test engineer, if you're reading this, chances are that you've been struggling with automation frameworks for some
-time and you've come accross at least 2 or 3 of the following issues:
+<p align="center">
+  <img width="720px" src="./web/src/main/resources/demo.gif?raw=true" />
+</p>
+<br>
 
-- When implementing test automation scenarios we usually focus too much on implementation. This produces unreliable
-  tests and it can be painful / time consuming to find the root cause of a failure.
+## What problem does it solve ?
 
-- Your management looses faith in your test suite, because too many failures come from flaky tests or developers
-  changing implementation details.
+It enables _**Acceptance**_ test automation. 
 
-- Test automation usually comes after feature implementation. There is simply no proper way to provide a test suite at
-  the end of your Sprint. So you end up targeting non-regression ... Agile ?
+You can now provide your developers with test scenarios at the beginning of a development cycle.
 
-- Generally speaking as the test suite grows, it is harder to maintain readability, event with BDD / Cucumber
-  frameworks.
+The developers can use the test scenarios at any time during the development cycle to verify acceptance. Since test scenarios are human readable, they also serve as documentation.
 
-Specalizr tries to address all these issues and more ...
+At the end of the cycle the developers deliver features as test scenarios are green.
 
-## Yes but ... how ?
+## How 
 
-- By decoupling scenario description from scenario execution implementation
+- By providing a language that relies on visual description of elements rather than underlying implementation.
 
-- By reducing flakyness, enforcing best practices
+- By decoupling scenario description from scenario execution.
 
-- By providing a way to describe test scenarios in a human readable way (readable by all project stakeholders).
+- By providing scenario players that understand and execute the language.
 
-## Project Goal :
+## A simple example :
 
-Enable visual scenario ATDD in Java. Allow software producers and integrators to deliver E2E / front-end tests together
-with wireframes.
-
-Streamline collaboration between all project stakeholders.
-
-Example for a google unit conversion use case :
+Here's a use case involving a unit conversion (using Google unit converter)
 
 <p align="center">
   <img src="./web/src/main/resources/google-test.png" />
@@ -64,11 +58,7 @@ Example for a google unit conversion use case :
 ```
 
 
-<p align="center">
-  <img width="720px" src="./web/src/main/resources/demo.gif?raw=true" />
-</p>
-
-## Concepts
+## Main concepts
 
 ### Action
 
@@ -117,6 +107,8 @@ for providing players for ActionDefinition instances.
 ``` java
         play(actions, with(seleniumPlayer));
 ```
+
+see web/src/test/java/ch.qarts.specalizr.examples package for examples
 
 ### Extend the framework
 
@@ -184,3 +176,6 @@ In order to make things happen you need to embed the following dependencies :
 
 Inspired by [taiko.dev](https://taiko.dev)
 
+# License
+
+Specalizr is an open-source project distributed under the [MIT](https://choosealicense.com/licenses/mit/) license
