@@ -3,7 +3,7 @@ package ch.qarts.specalizr.api.action;
 import ch.qarts.specalizr.api.player.ActionDefinitionPlayerRegistry;
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ import static java.lang.String.format;
  * Further chaining is performed by using instance method {@link #then(ActionDefinition)}  <p>
  * For better readability finish the chain with {@link #andLastly(ActionDefinition)} <p>
  */
-@Log4j
+@Slf4j
 public class ActionChain {
 
     @Getter
@@ -36,7 +36,7 @@ public class ActionChain {
 
     public static void play(@NonNull final ActionChain actionChain, @NonNull final ActionDefinitionPlayerRegistry actionChainPlayer) {
         for (final var actionDefinition : actionChain.getActionDefinitionList()) {
-            ActionChain.log.debug(format("playing ... %s", actionDefinition));
+            log.debug(format("playing ... %s", actionDefinition));
             final var actionDefinitionPlayer = actionChainPlayer.forType((Class<ActionDefinition>) actionDefinition.getClass());
             actionDefinitionPlayer.play(actionDefinition);
         }

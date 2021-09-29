@@ -1,7 +1,6 @@
 package ch.qarts.specalizr.web.xpath.by;
 
 import lombok.ToString;
-import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
@@ -16,7 +15,6 @@ import java.util.stream.Collectors;
  * A <b>reasonably performant</b> {@link By} implementation that matches all provided Bys <p>
  */
 @ToString
-@Log4j
 public class ByMatchAll extends By {
 
     private final List<By> byList = new ArrayList<>();
@@ -33,11 +31,7 @@ public class ByMatchAll extends By {
             new FluentWait<>(context)
                     .withTimeout(Duration.ofSeconds(30))
                     .ignoring(NoSuchElementException.class)
-                    .until(searchContext -> {
-                        final List<WebElement> elements = context.findElements(by);
-                        ByMatchAll.log.debug(by + " : " + elements.size());
-                        return elements;
-                    })
+                    .until(searchContext -> context.findElements(by))
                     .forEach(webElement -> {
                         final var remoteWebElement = (RemoteWebElement) webElement;
                         remoteWebElementList.add(remoteWebElement);
