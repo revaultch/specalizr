@@ -4,8 +4,9 @@ import ch.qarts.specalizr.api.element.Clickable;
 import ch.qarts.specalizr.api.element.ElementBase;
 import ch.qarts.specalizr.api.query.ElementQueryComponent;
 import ch.qarts.specalizr.api.query.TextQueryComponent;
-import ch.qarts.specalizr.intg.web.action.impl.player.WebPlayer;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.*;
+import ch.qarts.specalizr.web.ElementResolverFacade;
+import ch.qarts.specalizr.web.player.WebPlayer;
+import ch.qarts.specalizr.web.xpath.resolver.impl.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
@@ -66,7 +67,6 @@ public class StackOverflowCustomComponentExample {
     public void tearDown() {
         this.webDriver.quit();
     }
-
 
 
     @Test

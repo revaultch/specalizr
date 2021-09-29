@@ -4,10 +4,10 @@ import ch.qarts.specalizr.api.element.Clickable;
 import ch.qarts.specalizr.api.element.ElementBase;
 import ch.qarts.specalizr.api.query.ElementQueryComponent;
 import ch.qarts.specalizr.api.query.TextQueryComponent;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ElementResolver;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ElementResolverRegistry;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ResolverContext;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.TextQueryComponentResolver;
+import ch.qarts.specalizr.web.xpath.resolver.impl.ElementResolver;
+import ch.qarts.specalizr.web.ElementResolverRegistry;
+import ch.qarts.specalizr.web.xpath.resolver.impl.ResolverContext;
+import ch.qarts.specalizr.web.xpath.resolver.impl.TextQueryComponentResolver;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 

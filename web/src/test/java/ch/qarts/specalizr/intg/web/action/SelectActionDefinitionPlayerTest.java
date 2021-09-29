@@ -1,8 +1,8 @@
 package ch.qarts.specalizr.intg.web.action;
 
 import ch.qarts.specalizr.api.element.Selectable;
-import ch.qarts.specalizr.intg.web.action.impl.player.SelectActionDefinitionPlayer;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ElementResolverFacade;
+import ch.qarts.specalizr.web.player.SelectActionDefinitionPlayer;
+import ch.qarts.specalizr.web.ElementResolverFacade;
 import ch.qarts.specalizr.intg.web.common.LocatorTestBase;
 import ch.qarts.specalizr.intg.web.common.Page;
 import org.junit.jupiter.api.Test;

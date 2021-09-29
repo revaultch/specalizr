@@ -1,6 +1,6 @@
 package ch.qarts.specalizr.intg.web.common;
 
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ElementResolverFacade;
+import ch.qarts.specalizr.web.ElementResolverFacade;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;

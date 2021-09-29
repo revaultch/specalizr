@@ -1,7 +1,7 @@
 package ch.qarts.specalizr.examples;
 
-import ch.qarts.specalizr.intg.web.action.impl.player.WebPlayer;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ElementResolverFacade;
+import ch.qarts.specalizr.web.player.WebPlayer;
+import ch.qarts.specalizr.web.ElementResolverFacade;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
@@ -60,7 +60,6 @@ public class LinkedInJobSearchExample {
     public void tearDown() {
         this.webDriver.quit();
     }
-
 
 
     @Test

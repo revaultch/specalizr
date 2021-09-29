@@ -2,10 +2,10 @@ package ch.qarts.specalizr.examples;
 
 import ch.qarts.specalizr.api.query.LabelQueryComponent;
 import ch.qarts.specalizr.api.query.TextQueryComponent;
-import ch.qarts.specalizr.intg.web.action.impl.player.WebPlayer;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ElementQueryComponentResolver;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ElementResolverFacade;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ResolverContext;
+import ch.qarts.specalizr.web.player.WebPlayer;
+import ch.qarts.specalizr.web.xpath.resolver.impl.ElementQueryComponentResolver;
+import ch.qarts.specalizr.web.ElementResolverFacade;
+import ch.qarts.specalizr.web.xpath.resolver.impl.ResolverContext;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;

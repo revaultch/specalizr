@@ -2,8 +2,8 @@ package ch.qarts.specalizr.intg.web.action;
 
 import ch.qarts.specalizr.api.action.definition.CheckUncheckActionDefinition;
 import ch.qarts.specalizr.api.element.Toggable;
-import ch.qarts.specalizr.intg.web.action.impl.player.CheckUncheckActionDefinitionPlayer;
-import ch.qarts.specalizr.intg.web.action.impl.xpath.resolver.impl.ElementResolverFacade;
+import ch.qarts.specalizr.web.player.CheckUncheckActionDefinitionPlayer;
+import ch.qarts.specalizr.web.ElementResolverFacade;
 import ch.qarts.specalizr.intg.web.common.LocatorTestBase;
 import ch.qarts.specalizr.intg.web.common.Page;
 import org.junit.jupiter.api.Test;
