@@ -1,6 +1,10 @@
-name: Full-build CI
+name: Java CI w/maven
 
-on: [ push ]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
