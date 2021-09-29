@@ -18,15 +18,21 @@ An implementation and platform agnostic, human-readable visual test scenario def
 
 ## What problem does it solve ?
 
-It enables _**Acceptance**_ test automation. 
+It enables _**Acceptance**_ test automation.
 
-You can now provide your developers with test scenarios at the beginning of a development cycle.
+1. You can now provide your developers with test scenarios at the beginning of a development cycle.
 
-The developers can use the test scenarios at any time during the development cycle to verify acceptance. Since test scenarios are human readable, they also serve as documentation.
 
-At the end of the cycle the developers deliver features as test scenarios are green.
+2. Developers can use the test scenarios at any time during the development cycle to verify acceptance. Since test
+   scenarios are human readable, they also serve as documentation.
 
-## How 
+
+3. At the end of the cycle the developers deliver features as test scenarios are green.
+
+
+4. Finally acceptance tests become non-regression tests for further development cycles.
+
+## How
 
 - By providing a language that relies on visual description of elements rather than underlying implementation.
 
@@ -56,7 +62,6 @@ Here's a use case involving a unit conversion (using Google unit converter)
 
         play(actions, with(webPlayer));
 ```
-
 
 ## Main concepts
 
@@ -144,8 +149,7 @@ public class TextQueryComponent extends ElementQueryComponent {
 
 ## Implementations
 
-There is currently a [Web](./web) implementation available. 
-
+There is currently a [Web](./web) implementation available.
 
 ## Dependencies
 
@@ -170,7 +174,6 @@ In order to make things happen you need to embed the following dependencies :
             <version>VERSION_HERE</version>
         </dependency>
 ``` 
-
 
 # Credits
 
